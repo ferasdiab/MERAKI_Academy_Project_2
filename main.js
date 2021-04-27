@@ -15,7 +15,7 @@ $("#type2b").on("click", () => {
     $(".typeOfMovie").hide()
     $(".Action").show()
     $(".addToAction").show()
-    rinder()
+    rinderaction()
 
 
 
@@ -24,19 +24,21 @@ $("#type2b").on("click", () => {
 $("#type3b").on("click", () => {
     $(".typeOfMovie").hide()
     $(".Comedy").show()
+    
+
 
 });
 
-
-const ActionMovieName = ["Nobody", "The Equalizer","The Dark Knight"]
-const ActionMovieBref = [ "A bystander who intervenes to help a woman being harassed by a group of men becomes the target of a vengeful drug lrd.", " A man who believes he has put his mysterious past behind him cannot stand idly by when he meets a young girl under the control of ultra-violent Russian gangsters." ,"When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice."]
-const ActionMovieImj = ["https://m.media-amazon.com/images/M/MV5BMjM5YTRlZmUtZGVmYi00ZjE2LWIyNzAtOWVhMDk1MDdkYzhjXkEyXkFqcGdeQXVyMjMxOTE0ODA@._V1_UX182_CR0,0,182,268_AL_.jpg","https://m.media-amazon.com/images/M/MV5BMTQ2MzE2NTk0NF5BMl5BanBnXkFtZTgwOTM3NTk1MjE@._V1_UX182_CR0,0,182,268_AL_.jpg" ,"https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg"]
-const ActionMovieYear = [ "26 March 2021","26 September 2014", "18 July 2008"]
+const ActionMovieName = ["Nobody", "The Equalizer","The Dark Knight","John Wick"]
+const ActionMovieBref = [ "A bystander who intervenes to help a woman being harassed by a group of men becomes the target of a vengeful drug lrd.", " A man who believes he has put his mysterious past behind him cannot stand idly by when he meets a young girl under the control of ultra-violent Russian gangsters." ,"When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.","An ex-hit-man comes out of retirement to track down the gangsters that killed his dog and took everything from him."]
+const ActionMovieImj = ["https://m.media-amazon.com/images/M/MV5BMjM5YTRlZmUtZGVmYi00ZjE2LWIyNzAtOWVhMDk1MDdkYzhjXkEyXkFqcGdeQXVyMjMxOTE0ODA@._V1_UX182_CR0,0,182,268_AL_.jpg","https://m.media-amazon.com/images/M/MV5BMTQ2MzE2NTk0NF5BMl5BanBnXkFtZTgwOTM3NTk1MjE@._V1_UX182_CR0,0,182,268_AL_.jpg" ,"https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg","https://m.media-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_UX182_CR0,0,182,268_AL_.jpg"]
+const ActionMovieYear = [ "26 March 2021","26 September 2014", "18 July 2008","24 October 2014"]
 const ActionMovieCast = [{Director:" Ilya Naishuller" ,Writer :"Derek Kolstad", Stars:"Bob Odenkirk, Aleksey Serebryakov, Connie Nielsen" },
 {Director:"Antoine Fuqua" ,Writer :"Richard Wenk, Michael Sloan", Stars:"Denzel Washington, Marton Csokas, Chloë Grace Moretz"},
-{Director:"Christopher Nolan" ,Writer :" Jonathan Nolan (screenplay), Christopher Nolan (screenplay)", Stars:"Christian Bale, Heath Ledger, Aaron Eckhart "}]
+{Director:"Christopher Nolan" ,Writer :" Jonathan Nolan (screenplay), Christopher Nolan (screenplay)", Stars:"Christian Bale, Heath Ledger, Aaron Eckhart "},
+{Director:"Chad Stahelski, David Leitch ",Writer:" Derek Kolstad",Stars:"Keanu Reeves, Michael Nyqvist, Alfie Allen"}]
 
-const rinder = ()=>{
+const rinderaction = ()=>{
     $(".Action").show()
     $(".Action").html("")
 for (let i=0; i<ActionMovieName.length;i++){
@@ -66,7 +68,7 @@ for (let i=0; i<ActionMovieName.length;i++){
 
 $("#addToAction").on("click", () => {
     $(".Action").hide()
-    $("#addToAction").remove()
+    $("#addToAction").hide()
     $(".addToAction").append(`<div id='newMovie' ></div>`)
     $("#newMovie").append("<input id='actionInput1' type='text' placeholder='Movie Name'><br>")
     $("#newMovie").append("<input id='actionInput2' type='text' placeholder='Movie Bref'><br>")
@@ -78,7 +80,7 @@ $("#addToAction").on("click", () => {
     $("#newMovie").append("<button id='addActionNow'>add now </button>")
 
     $("#addActionNow").on("click", function() {
-        $("#addActionNow").remove()
+        $("#addActionNow").hide()
         
         ActionMovieName.push($("#actionInput1").val())
         ActionMovieBref.push($("#actionInput2").val())
@@ -89,10 +91,48 @@ $("#addToAction").on("click", () => {
         obj.Writer = $("#actionInput6").val()
         obj.Stars = $("#actionInput7").val()
         ActionMovieCast.push(obj)
-        rinder()
-        $("input").remove()
+        rinderaction()
+        $("input").hide()
 
     });
 
 });
 
+////////////////////comedy  list //////////////////
+
+const comedyMovieName =["The Hitman's Bodyguard ","Step Brothers","Deadpool"]
+const comedyMovieBref = ["The world's top bodyguard gets a new client, a hitman who must testify at the International Criminal Court. They must put their differences aside and work together to make it to the trial on time.","Two aimless middle-aged losers still living at home are forced against their will to become roommates when their parents marry.","A wisecracking mercenary gets experimented on and becomes immortal but ugly, and sets out to track down the man who ruined his looks."]
+const comedyMovieImj =["https://m.media-amazon.com/images/M/MV5BMjQ5NjA2NDg1MV5BMl5BanBnXkFtZTgwMDAzNDc4MjI@._V1_UX182_CR0,0,182,268_AL_.jpg","https://m.media-amazon.com/images/M/MV5BODViZDg3ZjYtMzhiYS00YTVkLTk4MzktYWUxMTlkYjc1NjdlXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg","https://m.media-amazon.com/images/M/MV5BYzE5MjY1ZDgtMTkyNC00MTMyLThhMjAtZGI5OTE1NzFlZGJjXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg"]
+const comedyMovieYear = ["18 August 2017"," 25 July 2008"," 12 February 2016"]
+const comedyMovieCast =[{Director:"Patrick Hughes",Writer:"Tom O'Connor",Stars:" Ryan Reynolds, Samuel L. Jackson, Gary Oldman "},
+    {Director:"Adam McKay",Writer:" Will Ferrell, Adam McKay",Stars:"Will Ferrell, John C. Reilly, Mary Steenburgen "},
+    {Director:"Tim Miller",Writer:"Rhett Reese, Paul Wernick",Stars:" Ryan Reynolds, Morena Baccarin, T.J. Miller "}]
+
+
+
+
+    for (let i=0; i<comedyMovieName.length;i++){
+        $(".Comedy").append(`<div class=movieDiv id='ComedyMovie${i}' ></div>`)
+    
+        $("#ComedyMovie"+i).append(`<div class=movieDivCH1 ><img src='${comedyMovieImj[i]}' alt='${comedyMovieName[i]} photo'></div>`)
+        $("#ComedyMovie"+i).append(`<div class=movieDivCH2 id='ComedyCH${i}' ></div>`)
+        $("#ComedyCH"+i).append(`<h1>${comedyMovieName[i]}</h1>`)
+        $("#ComedyCH"+i).append(`<h2>${comedyMovieYear[i]}</h2>`)
+        $("#ComedyCH"+i).append(`<p>${comedyMovieBref[i]}</p>`)
+        $("#ComedyCH"+i).append(`<div class='moreInfo'><button id='Comedymore${i}'>More Info ...</button></div>`)
+    
+    
+    
+        $("#Comedymore"+i).on("click", () => {
+            $("#ComedyCH"+i).append(`<div ><p> Director: ${comedyMovieCast[i].Director} </p></div>`)
+            $("#ComedyCH"+i).append(`<div ><p> Writer: ${comedyMovieCast[i].Writer} </p></div>`)
+            $("#ComedyCH"+i).append(`<div ><p> Stars: ${comedyMovieCast[i].Stars} </p></div>`)
+    
+    
+            $("#Comedymore"+i).remove()
+        
+        
+        });
+    }
+
+    movieDiv

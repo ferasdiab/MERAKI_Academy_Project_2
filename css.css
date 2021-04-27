@@ -48,7 +48,6 @@
 
 .TopWatch{
     width: 90%;
-    background-color: blue;
 }
 
 .Action{
@@ -62,7 +61,10 @@
 
 .Comedy{
     width: 90%;
-    background-color: chartreuse;
+    display: flex;
+    flex-flow :  wrap ;
+    justify-content : space-between;
+    margin-left: 5%;
 }
 
 .movieDiv {
