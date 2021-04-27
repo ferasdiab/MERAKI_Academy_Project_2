@@ -28,13 +28,18 @@
 
 .typeOfMovie {
     
-    margin-top: 15%;
+    margin-top: 8%;
     display: flex;
     flex-direction : column;
     justify-content : space-around;
 }
 
 .type1, .type2, .type3 {
+    width: 100px;
+    margin: auto;
+    margin-top: 5%;
+}
+#type1b, #type2b, #type3b {
     width: 100px;
     margin-top: 5%;
     margin: auto;
@@ -51,6 +56,8 @@
     display: flex;
     flex-flow :  wrap ;
     justify-content : space-between;
+    margin-left: 5%;
+    
 }
 
 .Comedy{
@@ -63,7 +70,24 @@
     margin-left: 20px;
     display: flex;
     justify-content : space-around;
+    margin-top: 20px;
 
+}
+
+.movieDivCH1, .movieDivCH2{
+    width: 48%;
+    
+}
+
+img{
+    height: 300px;
+    width: 90%;
+}
+
+
+.moreInfo{
+    margin: auto;
+    margin-top: 10%;
 }
 
 
