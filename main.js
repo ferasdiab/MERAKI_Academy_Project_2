@@ -79,6 +79,7 @@ $("#addToAction").on("click", () => {
 
     $("#addActionNow").on("click", function() {
         $("#addActionNow").remove()
+        
         ActionMovieName.push($("#actionInput1").val())
         ActionMovieBref.push($("#actionInput2").val())
         ActionMovieImj.push($("#actionInput3").val())
@@ -87,7 +88,9 @@ $("#addToAction").on("click", () => {
         obj.Director = $("#actionInput5").val()
         obj.Writer = $("#actionInput6").val()
         obj.Stars = $("#actionInput7").val()
+        ActionMovieCast.push(obj)
         rinder()
+        $("input").remove()
 
     });
 
