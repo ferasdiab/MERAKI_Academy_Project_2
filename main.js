@@ -34,13 +34,14 @@ const ActionMovieName = ["Nobody", "The Equalizer","The Dark Knight","John Wick"
 const ActionMovieBref = [ "A bystander who intervenes to help a woman being harassed by a group of men becomes the target of a vengeful drug lrd.", " A man who believes he has put his mysterious past behind him cannot stand idly by when he meets a young girl under the control of ultra-violent Russian gangsters." ,"When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.","An ex-hit-man comes out of retirement to track down the gangsters that killed his dog and took everything from him."]
 const ActionMovieImj = ["https://m.media-amazon.com/images/M/MV5BMjM5YTRlZmUtZGVmYi00ZjE2LWIyNzAtOWVhMDk1MDdkYzhjXkEyXkFqcGdeQXVyMjMxOTE0ODA@._V1_UX182_CR0,0,182,268_AL_.jpg","https://m.media-amazon.com/images/M/MV5BMTQ2MzE2NTk0NF5BMl5BanBnXkFtZTgwOTM3NTk1MjE@._V1_UX182_CR0,0,182,268_AL_.jpg" ,"https://m.media-amazon.com/images/M/MV5BMTMxNTMwODM0NF5BMl5BanBnXkFtZTcwODAyMTk2Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg","https://m.media-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_UX182_CR0,0,182,268_AL_.jpg"]
 const ActionMovieYear = [ "26 March 2021","26 September 2014", "18 July 2008","24 October 2014"]
-const ActionMovieRating = [{rating :10 ,userNum:1},{rating :6 ,userNum:50},{rating :7 ,userNum:50}]
+const ActionMovieRating = [{rating :10 ,userNum:1},{rating :6 ,userNum:50},{rating :7 ,userNum:50},{rating :8 ,userNum:500}]
 const ActionMovieCast = [{Director:" Ilya Naishuller" ,Writer :"Derek Kolstad", Stars:"Bob Odenkirk, Aleksey Serebryakov, Connie Nielsen" },
 {Director:"Antoine Fuqua" ,Writer :"Richard Wenk, Michael Sloan", Stars:"Denzel Washington, Marton Csokas, Chloë Grace Moretz"},
 {Director:"Christopher Nolan" ,Writer :" Jonathan Nolan (screenplay), Christopher Nolan (screenplay)", Stars:"Christian Bale, Heath Ledger, Aaron Eckhart "},
 {Director:"Chad Stahelski, David Leitch ",Writer:" Derek Kolstad",Stars:"Keanu Reeves, Michael Nyqvist, Alfie Allen"}]
 
 const rinderaction = ()=>{
+    $("#addToAction").show()
     $(".Action").show()
     $(".Action").html("")
 for (let i=0; i<ActionMovieName.length;i++){
@@ -51,7 +52,7 @@ for (let i=0; i<ActionMovieName.length;i++){
     $("#actionCH"+i).append(`<h1>${ActionMovieName[i]}</h1>`)
     $("#actionCH"+i).append(`<h2>${ActionMovieYear[i]}</h2>`)
     localStorage.setItem(ActionMovieName[i],ActionMovieRating[i].rating)
-    $("#actionCH"+i).append(`<h4>Rating : ${Math.round(ActionMovieRating[i].rating)} From ${ActionMovieRating[i].userNum}`)
+    $("#actionCH"+i).append(`<h4>Rating : ${Math.round(ActionMovieRating[i].rating*10)/10} From ${ActionMovieRating[i].userNum}`)
     $("#actionCH"+i).append(`<div class='rating'><button id='actionRating${i}'>click to rate</button></div>`)
 
 
@@ -61,13 +62,10 @@ for (let i=0; i<ActionMovieName.length;i++){
 
 
     $("#actionmore"+i).on("click", () => {
+        $("#actionmore"+i).hide()
         $("#actionCH"+i).append(`<div ><p> Director: ${ActionMovieCast[i].Director} </p></div>`)
         $("#actionCH"+i).append(`<div ><p> Writer: ${ActionMovieCast[i].Writer} </p></div>`)
         $("#actionCH"+i).append(`<div ><p> Stars: ${ActionMovieCast[i].Stars} </p></div>`)
-
-
-    
-    
     
     });
 
@@ -80,14 +78,7 @@ for (let i=0; i<ActionMovieName.length;i++){
         
 
     });
-    /*$("#zzzzzzz").on("click", () => {
-        console.log("hi")
-        $("#addRate"+i).remove()
-        localStorage.setItem(ActionMovieName[i],$(`#rateThis${i}`).val())
-        rinderaction()
 
-    });
-    */
 }
 }
 
@@ -101,7 +92,7 @@ const fun1 = (i)=>{
     ActionMovieRating[i].userNum = ActionMovieRating[i].userNum
 
     rinderaction()
-}
+    }
 
 }
 
@@ -116,8 +107,9 @@ $("#addToAction").on("click", () => {
     $("#newMovie").append("<input id='actionInput5' type='text' placeholder='Movie Director'><br>")
     $("#newMovie").append("<input id='actionInput6' type='text' placeholder='Movie Writer'><br>")
     $("#newMovie").append("<input id='actionInput7' type='text' placeholder='Movie Stars'><br>")
-    $("#newMovie").append("<button id='addActionNow'>add now </button>")
+    $("#newMovie").append("<button onclick ='addAction()' id='addActionNow'>add now </button>")
 
+    /*
     $("#addActionNow").on("click", function() {
         $("#addActionNow").hide()
         
@@ -130,12 +122,29 @@ $("#addToAction").on("click", () => {
         obj.Writer = $("#actionInput6").val()
         obj.Stars = $("#actionInput7").val()
         ActionMovieCast.push(obj)
+        ActionMovieRating.push({rating :0 ,userNum:0})
         rinderaction()
         $("input").hide()
 
     });
-
+*/
 });
+const addAction = ()=>{
+    $("#addActionNow").remove()
+        
+        ActionMovieName.push($("#actionInput1").val())
+        ActionMovieBref.push($("#actionInput2").val())
+        ActionMovieImj.push($("#actionInput3").val())
+        ActionMovieYear.push($("#actionInput4").val())
+        const obj = {}
+        obj.Director = $("#actionInput5").val()
+        obj.Writer = $("#actionInput6").val()
+        obj.Stars = $("#actionInput7").val()
+        ActionMovieCast.push(obj)
+        ActionMovieRating.push({rating :0 ,userNum:0})
+        rinderaction()
+        $("input").remove()
+}
 
 ////////////////////comedy  list //////////////////
 
