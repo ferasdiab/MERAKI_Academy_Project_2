@@ -162,7 +162,7 @@ const rinderComedy = ()=>{
         $("#ComedyCH"+i).append(`<h4>Rating : ${localStorage.getItem(comedyMovieName[i])} From 10</h4>`)
         $("#ComedyCH"+i).append(`<div class='rating'><button id='comedyRating${i}'>click to rate</button></div>`)
 
-        $("#ComedyCH"+i).append(`<p breafcomedy${i}>${comedyMovieBref[i]}</p>`)
+        $("#ComedyCH"+i).append(`<p id='breafcomedy${i}'>${comedyMovieBref[i]}</p>`)
         $("#ComedyCH"+i).append(`<div class='moreInfo'><button id='Comedymore${i}'>More Info ...</button></div>`)
     
     
@@ -177,6 +177,27 @@ const rinderComedy = ()=>{
         
         
         });
+
+        $("#comedyRating"+i).on("click", () => {
+            $("#comedyRating"+i).remove()
+            $("#breafcomedy"+i).remove()
+            $("#Comedymore"+i).remove()
+            $("#ComedyCH"+i).append(`<input id='rateThisA${i}' type='text' placeholder='your Rate'><br>`)
+            $("#ComedyCH"+i).append(`<button onclick='fun1A(${i})' id='addRateA${i}'>Add your Rate</button>`)
+            
+    
+        });
+
+
+    
     }
 
+    }
+
+    const fun1A = (i)=>{
+        $("#addRateA"+i).remove()
+        localStorage.setItem(comedyMovieName[i],$(`#rateThisA${i}`).val())
+        comedyMovieRating[i] = $(`#rateThisA${i}`).val()
+        rinderComedy()
+    
     }
