@@ -46,8 +46,13 @@
 }
 
 
-.TopWatch{
+.Favorites{
     width: 90%;
+    display: flex;
+    flex-flow :  wrap ;
+    justify-content : space-around;
+    margin-left: 5%;
+    
 }
 
 .Action{
