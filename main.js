@@ -52,8 +52,7 @@ const rinderaction = ()=>{
     $("#ActionMovie"+i).append(`<div class=movieDivCH2 id='actionCH${i}' ></div>`)
     $("#actionCH"+i).append(`<h1>${ActionMovieName[i]}</h1>`)
     $("#actionCH"+i).append(`<h2>${ActionMovieYear[i]}</h2>`)
-    localStorage.setItem(ActionMovieName[i],ActionMovieRating[i].rating)
-    $("#actionCH"+i).append(`<h4>Rating : ${Math.round(ActionMovieRating[i].rating*10)/10} From ${ActionMovieRating[i].userNum}`)
+    $("#actionCH"+i).append(`<h4>Rating : ${Math.round(ActionMovieRating[i].rating*10)/10} From ${ActionMovieRating[i].userNum} Users</h4>`)
     $("#actionCH"+i).append(`<div class='rating'><button id='actionRating${i}'>Rate This Movie</button></div>`)
     $("#actionCH"+i).append(`<p id='breafAction${i}'>${ActionMovieBref[i]}</p>`)
     $("#actionCH"+i).append(`<div class='moreInfo'><button id='actionmore${i}'>More Info ...</button></div>`)
@@ -78,7 +77,7 @@ const rinderaction = ()=>{
 
     });
     $(".movieDiv").on("mouseover",function(){
-        $(this).css("width", "42%");
+        $(this).css("width", "43%");
         })
         $(".movieDiv").on("mouseout",function(){
             $(this).css("width", "40%");
@@ -179,11 +178,8 @@ const rinderComedy = ()=>{
         $("#ComedyMovie"+i).append(`<div class=movieDivCH2 id='ComedyCH${i}' ></div>`)
         $("#ComedyCH"+i).append(`<h1>${comedyMovieName[i]}</h1>`)
         $("#ComedyCH"+i).append(`<h2>${comedyMovieYear[i]}</h2>`)
-
-        localStorage.setItem(comedyMovieName[i],comedyMovieRating[i].rating)
-        $("#ComedyCH"+i).append(`<h4>Rating : ${Math.round(localStorage.getItem(comedyMovieName[i])*10)/10}/10 From ${comedyMovieRating[i].userNum} Rate </h4>`)
+        $("#ComedyCH"+i).append(`<h4>Rating : ${Math.round(comedyMovieRating[i].rating*10)/10} From ${comedyMovieRating[i].userNum} Users</h1>`)
         $("#ComedyCH"+i).append(`<div class='rating'><button id='comedyRating${i}'>click to rate</button></div>`)
-
         $("#ComedyCH"+i).append(`<p id='breafcomedy${i}'>${comedyMovieBref[i]}</p>`)
         $("#ComedyCH"+i).append(`<div class='moreInfo'><button id='Comedymore${i}'>More Info ...</button></div>`)
     
