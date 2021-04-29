@@ -7,7 +7,8 @@ $(".addToAction").hide()
 
 $("#type1b").on("click", () => {
     $(".typeOfMovie").hide()
-    $(".TopWatch").show()
+    $(".Favorites").show()
+    rinderFavorites()
 
 });
 
@@ -64,6 +65,7 @@ const rinderaction = ()=>{
         $("#actionCH"+i).append(`<div ><p> Director: ${ActionMovieCast[i].Director} </p></div>`)
         $("#actionCH"+i).append(`<div ><p> Writer: ${ActionMovieCast[i].Writer} </p></div>`)
         $("#actionCH"+i).append(`<div ><p> Stars: ${ActionMovieCast[i].Stars} </p></div>`)
+        $("#actionCH"+i).append(`<button onclick='addToFav1(${i})' id='addFav${i}'>Add To Favorites </button>`)
     
     });
 
@@ -102,6 +104,13 @@ const fun1 = (i)=>{
 
 }
 
+const addToFav1 = (i)=>{
+    $("#addFav"+i).remove()
+    let arr = [ActionMovieName[i],ActionMovieBref[i],ActionMovieImj[i],ActionMovieYear[i]]
+    console.log(JSON.stringify(arr))
+    localStorage.setItem(ActionMovieName[i],JSON.stringify(arr))
+}
+
 $("#addToAction").on("click", () => {
     $(".Action").hide()
     $("#addToAction").hide()
@@ -115,26 +124,8 @@ $("#addToAction").on("click", () => {
     $("#newMovie").append("<input id='actionInput7' type='text' placeholder='Movie Stars'><br>")
     $("#newMovie").append("<button onclick ='addAction()' id='addActionNow'>add now </button>")
 
-    /*
-    $("#addActionNow").on("click", function() {
-        $("#addActionNow").hide()
-        
-        ActionMovieName.push($("#actionInput1").val())
-        ActionMovieBref.push($("#actionInput2").val())
-        ActionMovieImj.push($("#actionInput3").val())
-        ActionMovieYear.push($("#actionInput4").val())
-        const obj = {}
-        obj.Director = $("#actionInput5").val()
-        obj.Writer = $("#actionInput6").val()
-        obj.Stars = $("#actionInput7").val()
-        ActionMovieCast.push(obj)
-        ActionMovieRating.push({rating :0 ,userNum:0})
-        rinderaction()
-        $("input").hide()
-
-    });
-*/
 });
+
 const addAction = ()=>{
     $("#addActionNow").remove()
         
@@ -225,3 +216,59 @@ const rinderComedy = ()=>{
         }
     
     }
+
+
+//////////////////////////////////////////////Favorites list //////////////
+
+const rinderFavorites = ()=>{
+    $(".Comedy").show()
+    $(".Comedy").html("")
+    let i = 0
+    for (const key in localStorage ){
+        if ( key !=="length" && key !=="clear" && key !=="getItem" && key !=="key"  && key !=="removeItem" && key !=="setItem"){
+        console.log( (JSON.parse( localStorage.getItem(key))))
+        let arrr = JSON.parse( localStorage.getItem(key))
+
+        
+        
+        $(".Favorites").append(`<div class=movieDiv id='FavoritesMovie${i}' ></div>`)
+    
+        $("#FavoritesMovie"+i).append(`<div class=movieDivCH1 ><img src='${arrr[2]}' alt='${key} photo'></div>`)
+        $("#FavoritesMovie"+i).append(`<div class=movieDivCH2 id='FavoritesCH${i}' ></div>`)
+        $("#FavoritesCH"+i).append(`<h1>${arrr[0]}</h1>`)
+        $("#FavoritesCH"+i).append(`<h2>${arrr[3]}</h2>`)
+        //$("#FavoritesCH"+i).append(`<h4>Rating : ${Math.round(comedyMovieRating[i].rating*10)/10} From ${comedyMovieRating[i].userNum} Users</h1>`)
+        //$("#FavoritesCH"+i).append(`<div class='rating'><button id='FavoritesRating${i}'>click to rate</button></div>`)
+        $("#FavoritesCH"+i).append(`<p id='breafFavorites${i}'>${arrr[1]}}</p>`)
+        //$("#FavoritesCH"+i).append(`<div class='moreInfo'><button id='Favoritesmore${i}'>More Info ...</button></div>`)
+    
+        
+        /*
+        $("#Favoritesmore"+i).on("click", () => {
+            $("#FavoritesCH"+i).append(`<div ><p> Director: ${comedyMovieCast[i].Director} </p></div>`)
+            $("#FavoritesCH"+i).append(`<div ><p> Writer: ${comedyMovieCast[i].Writer} </p></div>`)
+            $("#FavoritesCH"+i).append(`<div ><p> Stars: ${comedyMovieCast[i].Stars} </p></div>`)
+    
+    
+            $("#Favoritesmore"+i).remove()
+        
+        
+        });
+
+        $("#comedyRating"+i).on("click", () => {
+            $("#comedyRating"+i).remove()
+            $("#breafcomedy"+i).remove()
+            $("#Comedymore"+i).remove()
+            $("#ComedyCH"+i).append(`<input id='rateThisA${i}' type='number' placeholder='your Rate(from 0 to 10)'><br>`)
+            $("#ComedyCH"+i).append(`<button onclick='fun1A(${i})' id='addRateA${i}'>Add your Rate</button>`)
+            
+    
+        });
+
+    */
+    i++
+    }
+    }  
+
+    }
+
