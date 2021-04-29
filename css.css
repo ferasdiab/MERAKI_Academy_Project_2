@@ -4,13 +4,18 @@
 }
 
 .navbar {
-    width: 85%;
+    width: 95%;
     margin: auto;
-    padding: 35px 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color:#011826;
 
+}
+
+#webName{
+    margin-left: 5%;
+    color: white;
 }
 
 .navbar ul li {
@@ -20,10 +25,38 @@
     position: relative;
 }
 
-.navbar ul li a {
+#AboutUS{
     text-decoration: none;
     text-transform: uppercase;
-    color: black
+    color: black;
+    padding: 15px;
+    border: 2px solid #38A69B;
+    background-color: #38A69B;
+    border-radius: 10px;
+    cursor: pointer;
+    
+}
+#type1b{
+        font-size: 14px;
+        padding: 14px;
+        border: 2px solid #38A69B;
+        background-color: #38A69B;
+        border-radius: 10px;
+        cursor: pointer;
+        text-transform: uppercase;
+
+}
+#home {
+    text-decoration: none;
+    border: none;
+    color: white;
+    margin-right: 100px;
+    font-size: large;
+}
+
+#home:hover{
+    color: #38A69B;
+    transition: 0.5s;
 }
 
 .typeOfMovie {

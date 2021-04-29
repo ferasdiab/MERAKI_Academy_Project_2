@@ -7,6 +7,9 @@ $(".addToAction").hide()
 
 $("#type1b").on("click", () => {
     $(".typeOfMovie").hide()
+    $(".Action").hide()
+    $(".Comedy").hide()
+    $("#addToAction").hide()
     $(".Favorites").show()
     rinderFavorites()
 
@@ -83,7 +86,7 @@ const rinderaction = ()=>{
         })
         $(".movieDiv").on("mouseout",function(){
             $(this).css("width", "40%");
-            }) 
+        }) 
 
     }
 }
@@ -199,6 +202,13 @@ const rinderComedy = ()=>{
     
         });
 
+        $(".movieDiv").on("mouseover",function(){
+            $(this).css("width", "43%");
+            })
+            $(".movieDiv").on("mouseout",function(){
+                $(this).css("width", "40%");
+            }) 
+
 
     
     }
@@ -230,8 +240,8 @@ const rinderComedy = ()=>{
 //////////////////////////////////////////////Favorites list //////////////
 
 const rinderFavorites = ()=>{
-    $(".Comedy").show()
-    $(".Comedy").html("")
+    $(".Favorites").show()
+    $(".Favorites").html("")
     let i = 0
     for (const key in localStorage ){
         if ( key !=="length" && key !=="clear" && key !=="getItem" && key !=="key"  && key !=="removeItem" && key !=="setItem"){
