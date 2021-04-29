@@ -65,9 +65,9 @@ const rinderaction = ()=>{
 
     $("#actionmore"+i).on("click", () => {
         $("#actionmore"+i).hide()
-        $("#actionCH"+i).append(`<div ><p> Director: ${ActionMovieCast[i].Director} </p></div>`)
-        $("#actionCH"+i).append(`<div ><p> Writer: ${ActionMovieCast[i].Writer} </p></div>`)
-        $("#actionCH"+i).append(`<div ><p> Stars: ${ActionMovieCast[i].Stars} </p></div>`)
+        $("#actionCH"+i).append(`<div class='staff${i}' ><p> Director: ${ActionMovieCast[i].Director} </p></div>`)
+        $("#actionCH"+i).append(`<div class='staff${i}' ><p> Writer: ${ActionMovieCast[i].Writer} </p></div>`)
+        $("#actionCH"+i).append(`<div class='staff${i}' ><p> Stars: ${ActionMovieCast[i].Stars} </p></div>`)
         $("#actionCH"+i).append(`<button onclick='addToFav1(${i})' id='addFav${i}'>Add To Favorites </button>`)
     
     });
@@ -76,6 +76,8 @@ const rinderaction = ()=>{
         $("#actionRating"+i).remove()
         $("#breafAction"+i).hide()
         $("#actionmore"+i).hide()
+        $(".staff"+i).hide()
+        $("#addFav"+i).hide()
         $("#actionCH"+i).append(`<input id='rateThis${i}' type='text' placeholder='your Rate'><br>`)
         $("#actionCH"+i).append(`<button onclick='fun1(${i})' id='addRate${i}'>Add your Rate</button>`)
         
@@ -96,6 +98,7 @@ const rinderaction = ()=>{
 const fun1 = (i)=>{
     if ( parseInt($(`#rateThis${i}`).val())  <=10  ){
     $("#addRate"+i).remove()
+    
     let rate = ActionMovieRating[i].rating*ActionMovieRating[i].userNum
     ActionMovieRating[i].userNum += 1
     let newRate = (rate + parseInt($(`#rateThis${i}`).val())) / ActionMovieRating[i].userNum
@@ -177,18 +180,12 @@ const rinderComedy = ()=>{
         $("#ComedyCH"+i).append(`<p id='breafcomedy${i}'>${comedyMovieBref[i]}</p>`)
         $("#ComedyCH"+i).append(`<div class='moreInfo'><button id='Comedymore${i}'>More Info ...</button></div>`)
     
-    
-    
         $("#Comedymore"+i).on("click", () => {
-            $("#ComedyCH"+i).append(`<div ><p> Director: ${comedyMovieCast[i].Director} </p></div>`)
-            $("#ComedyCH"+i).append(`<div ><p> Writer: ${comedyMovieCast[i].Writer} </p></div>`)
-            $("#ComedyCH"+i).append(`<div ><p> Stars: ${comedyMovieCast[i].Stars} </p></div>`)
+            $("#ComedyCH"+i).append(`<div class='staffB${i}' ><p> Director: ${comedyMovieCast[i].Director} </p></div>`)
+            $("#ComedyCH"+i).append(`<div class='staffB${i}' ><p> Writer: ${comedyMovieCast[i].Writer} </p></div>`)
+            $("#ComedyCH"+i).append(`<div class='staffB${i}' ><p> Stars: ${comedyMovieCast[i].Stars} </p></div>`)
             $("#ComedyCH"+i).append(`<button onclick='addToFav2(${i})' id='addFav2${i}'>Add To Favorites </button>`)
-
-    
-    
             $("#Comedymore"+i).remove()
-        
         
         });
 
@@ -196,6 +193,8 @@ const rinderComedy = ()=>{
             $("#comedyRating"+i).remove()
             $("#breafcomedy"+i).remove()
             $("#Comedymore"+i).remove()
+            $(".staffB"+i).hide()
+            $("#addFav2"+i).hide()
             $("#ComedyCH"+i).append(`<input id='rateThisA${i}' type='number' placeholder='your Rate(from 0 to 10)'><br>`)
             $("#ComedyCH"+i).append(`<button onclick='fun1A(${i})' id='addRateA${i}'>Add your Rate</button>`)
             

@@ -16,12 +16,14 @@
 #webName{
     margin-left: 5%;
     color: white;
+    text-transform: uppercase;
 }
 
 .navbar ul li {
     list-style: none;
     display: inline-block;
-    margin:  20px;
+    margin-left:  20px;
+    margin-right: 20px;
     position: relative;
 }
 
@@ -38,7 +40,7 @@
 }
 #type1b{
         font-size: 14px;
-        padding: 14px;
+        padding: 15px;
         border: 2px solid #38A69B;
         background-color: #38A69B;
         border-radius: 10px;
@@ -46,9 +48,19 @@
         text-transform: uppercase;
 
 }
+#AboutUS:hover, #type1b:hover {
+    transition: 1s;
+    background-color: #38a69bad;
+    border: 2px solid #38a69bad;
+
+}
+
+
+
+
+
 #home {
     text-decoration: none;
-    border: none;
     color: white;
     margin-right: 100px;
     font-size: large;
@@ -63,19 +75,17 @@
     
     margin-top: 8%;
     display: flex;
-    flex-direction : column;
     justify-content : space-around;
 }
 
-.type1, .type2, .type3 {
-    width: 100px;
-    margin: auto;
-    margin-top: 5%;
+.type1, .type2 {
+    margin: auto    ;
+    width: 40%;
 }
-#type1b, #type2b, #type3b {
+#type2b, #type3b {
     width: 100px;
+    margin-left: 10%;
     margin-top: 5%;
-    margin: auto;
 }
 
 
@@ -106,6 +116,7 @@
 }
 
 .movieDiv {
+    background-color:#021F32;
     width: 40%;
     margin-left: 20px;
     display: flex;
@@ -114,6 +125,9 @@
     padding: 15px;
     border: 2px solid black;
 
+}
+.movieDivCH2{
+    color: white;
 }
 
 .movieDivCH1, .movieDivCH2{
