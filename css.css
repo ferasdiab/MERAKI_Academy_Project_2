@@ -17,7 +17,14 @@
     margin-left: 5%;
     color: white;
     text-transform: uppercase;
+
 }
+/*
+#webName span {
+    color: #38a69bad ;
+}
+*/
+
 
 .navbar ul li {
     list-style: none;
