@@ -101,6 +101,25 @@
     font-size: large;
 }
 
+#addToAction{
+    margin-top: 3%;
+    margin-bottom: 2%;
+    font-size: 14px;
+    padding: 15px;
+    border: 2px solid #38A69B;
+    background-color: #38A69B;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: large;
+}
+
+#addToAction:hover, #type2b:hover, #type3b:hover {
+    transition: 1s;
+    background-color: #38a69bb6;
+    border: 2px solid #38a69bb6;
+
+}
+
 
 .Favorites{
     width: 90%;
@@ -153,15 +172,23 @@ img{
     width: 90%;
 }
 
+.movieDiv img {
+    height: 400px;
+    width: 100%;
+}
+
+
 
 .moreInfo{
     margin: auto;
     margin-top: 10%;
 }
 
-.rating{
+
+.star-widget{
     margin-right: 25%;
 }
+
 
 .star-widget input{
     display: none;
