@@ -91,13 +91,7 @@ const rinderaction = ()=>{
         $("#actionRateTH"+i).append(`<input type='radio' onclick='fun1(${i})' name='rate' id='rate-1${i}'>`)
         $("#actionRateTH"+i).append(`<label for='rate-1${i}' class='fas fa-star'></label>`)
     });
-    /*
-    $(".movieDiv").on("mouseover",function(){
-        $(this).css("width", "43%");
-        })
-        $(".movieDiv").on("mouseout",function(){
-            $(this).css("width", "40%");
-        }) */
+    
 
     }
 }
