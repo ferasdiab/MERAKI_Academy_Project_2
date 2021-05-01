@@ -114,11 +114,17 @@
     font-size: large;
 }
 
-#addToAction:hover, #type2b:hover, #type3b:hover, #addActionNow:hover {
+#addToAction:hover,  #addActionNow:hover {
     transition: 1s;
     background-color: #38a69bb6;
     border: 2px solid #38a69bb6;
 
+}
+
+#type2b:hover, #type3b:hover {
+    transition: 1s;
+    background-color: #02263ddc;
+    border: 2px solid #02263ddc;
 }
 
 

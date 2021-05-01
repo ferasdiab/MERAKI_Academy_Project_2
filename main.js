@@ -80,7 +80,6 @@ const rinderaction = ()=>{
         $(".staff"+i).hide()
         $("#addFav"+i).hide()
         $("#actionCH"+i).append(`<div id='actionRateTH${i}' class='star-widget'></div>`)
-
         $("#actionRateTH"+i).append(`<input type='radio' onclick='fun1(${i})' name='rate' id='rate-5${i}'>`)
         $("#actionRateTH"+i).append(`<label for='rate-5${i}' class='fas fa-star'></label>`)
         $("#actionRateTH"+i).append(`<input type='radio' onclick='fun1(${i})' name='rate' id='rate-4${i}'>`)
@@ -91,9 +90,6 @@ const rinderaction = ()=>{
         $("#actionRateTH"+i).append(`<label for='rate-2${i}' class='fas fa-star'></label>`)
         $("#actionRateTH"+i).append(`<input type='radio' onclick='fun1(${i})' name='rate' id='rate-1${i}'>`)
         $("#actionRateTH"+i).append(`<label for='rate-1${i}' class='fas fa-star'></label>`)
-
-        
-
     });
     /*
     $(".movieDiv").on("mouseover",function(){
