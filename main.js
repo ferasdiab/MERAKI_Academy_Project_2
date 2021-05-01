@@ -58,7 +58,7 @@ const rinderaction = ()=>{
     $("#actionCH"+i).append(`<h1>${ActionMovieName[i]}</h1>`)
     $("#actionCH"+i).append(`<h2>${ActionMovieYear[i]}</h2>`)
     $("#actionCH"+i).append(`<h4>Rating : ${Math.round(ActionMovieRating[i].rating*10)/10} / 5 From ${ActionMovieRating[i].userNum} Rate</h4>`)
-    $("#actionCH"+i).append(`<div class='rating'><button class='RButt' id='actionRating${i}'><i class='fas fa-star' style='font-size:15px;color:#021F32'></i>Rate</button></div>`)
+    $("#actionCH"+i).append(`<div class='rating'><button class='RButt' id='actionRating${i}'><i class='fas fa-star' style='font-size:15px;color:#021F32'></i> Rate</button></div>`)
     $("#actionCH"+i).append(`<p id='breafAction${i}'>${ActionMovieBref[i]}</p>`)
     $("#actionCH"+i).append(`<div class='moreInfo'><button class='moreBUtt' id='actionmore${i}'>More Info ...</button></div>`)
     
@@ -69,7 +69,7 @@ const rinderaction = ()=>{
         $("#actionCH"+i).append(`<div class='staff${i}' ><p> Director: ${ActionMovieCast[i].Director} </p></div>`)
         $("#actionCH"+i).append(`<div class='staff${i}' ><p> Writer: ${ActionMovieCast[i].Writer} </p></div>`)
         $("#actionCH"+i).append(`<div class='staff${i}' ><p> Stars: ${ActionMovieCast[i].Stars} </p></div>`)
-        $("#actionCH"+i).append(`<button onclick='addToFav1(${i})' class='moreBUtt' id='addFav${i}'>Add To Favorites </button>`)
+        $("#actionCH"+i).append(`<button onclick='addToFav1(${i})' class='moreBUtt' id='addFav${i}'><i class='fas fa-star' style='font-size:17px;color:yellow;'></i> Add To Favorites </button>`)
     
     });
 
@@ -206,7 +206,7 @@ const rinderComedy = ()=>{
             $("#ComedyCH"+i).append(`<div class='staffB${i}' ><p> Director: ${comedyMovieCast[i].Director} </p></div>`)
             $("#ComedyCH"+i).append(`<div class='staffB${i}' ><p> Writer: ${comedyMovieCast[i].Writer} </p></div>`)
             $("#ComedyCH"+i).append(`<div class='staffB${i}' ><p> Stars: ${comedyMovieCast[i].Stars} </p></div>`)
-            $("#ComedyCH"+i).append(`<button onclick='addToFav2(${i})' class='moreBUtt' id='addFav2${i}'>Add To Favorites </button>`)
+            $("#ComedyCH"+i).append(`<button onclick='addToFav2(${i})' class='moreBUtt' id='addFav2${i}'><i class='fas fa-star' style='font-size:17px;color:yellow;'></i> Add To Favorites </button>`)
             $("#Comedymore"+i).remove()
         
         });
@@ -233,14 +233,14 @@ const rinderComedy = ()=>{
         
     
         });
-
+/*
         $(".movieDiv").on("mouseover",function(){
             $(this).css("width", "43%");
             })
             $(".movieDiv").on("mouseout",function(){
                 $(this).css("width", "40%");
             }) 
-
+*/
 
     
     }
