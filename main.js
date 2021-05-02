@@ -253,8 +253,8 @@ const addToFav1 = (i) => {
     breaf : ActionMovieBref[i],
     imj   : ActionMovieImj[i],
     year  : ActionMovieYear[i],
-    rate  : ActionMovieRating[i].rating,
-    numRat: ActionMovieRating[i].userNum,
+    rate  : localStorage.getItem(`rate${i}`),
+    numRat: localStorage.getItem(`num${i}`),
     dir   : ActionMovieCast[i].Director,
     wir   : ActionMovieCast[i].Writer,
     star  : ActionMovieCast[i].Stars,
@@ -540,18 +540,23 @@ const fun1A = (i) => {
 
 const addToFav2 = (i) => {
   $("#addFav2" + i).remove();
-  let arr = [
-    comedyMovieName[i],
-    comedyMovieBref[i],
-    comedyMovieImj[i],
-    comedyMovieYear[i],
-    comedyMovieRating[i].rating,
-    comedyMovieRating[i].userNum,
-    comedyMovieCast[i].Director,
-    comedyMovieCast[i].Writer,
-    comedyMovieCast[i].Stars,
-  ];
-  localStorage.setItem(comedyMovieName[i], JSON.stringify(arr));
+  let arr = []
+  let obj  = {
+    Mname : comedyMovieName[i],
+    breaf : comedyMovieBref[i],
+    imj   : comedyMovieImj[i],
+    year  : comedyMovieYear[i],
+    rate  : localStorage.getItem(`rate1${i}`),
+    numRat: localStorage.getItem(`num1${i}`),
+    dir   :comedyMovieCast[i].Director,
+    wir   :comedyMovieCast[i].Writer,
+    star  :comedyMovieCast[i].Stars,
+  };
+  if (localStorage.getItem("favLIST")){
+   arr = JSON.parse( localStorage.getItem("favLIST"))
+  }
+  arr.push(obj)
+  localStorage.setItem("favLIST", JSON.stringify(arr));
 };
 
 //////////////////////////////////////////////Favorites list //////////////
