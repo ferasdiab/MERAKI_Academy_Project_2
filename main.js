@@ -112,6 +112,8 @@ const rinderaction = () => {
   $("#addToAction").show();
   $(".Action").show();
   $(".Action").html("");
+  /// add rate with local storage
+  
   for (let i = 0; i < ActionMovieName.length; i++) {
     $(".Action").append(`<div class=movieDiv id='ActionMovie${i}' ></div>`);
     $("#ActionMovie" + i).append(
