@@ -62,7 +62,7 @@ const ActionMovieYear = [
   "24 April 2020",
 ];
 const ActionMovieRating = [
-  { rating: 5, userNum: 1 },
+  { rating: 4.7999, userNum: 1 },
   { rating: 4, userNum: 50 },
   { rating: 4.8, userNum: 750 },
   { rating: 4.2, userNum: 200 },
@@ -109,11 +109,19 @@ const ActionMovieCast = [
 ];
 
 const rinderaction = () => {
+  for (let i = 0; i < ActionMovieName.length; i++) {
+    if (!localStorage.getItem(`rate${i}`)) {
+      localStorage.setItem(`rate${i}`, ActionMovieRating[i].rating);
+    }
+    if (!localStorage.getItem(`num${i}`)) {
+      localStorage.setItem(`num${i}`, ActionMovieRating[i].userNum);
+    }
+  }
+  let movRate = 0;
+  let movRateNum = 0;
   $("#addToAction").show();
   $(".Action").show();
   $(".Action").html("");
-  /// add rate with local storage
-  
   for (let i = 0; i < ActionMovieName.length; i++) {
     $(".Action").append(`<div class=movieDiv id='ActionMovie${i}' ></div>`);
     $("#ActionMovie" + i).append(
@@ -124,10 +132,13 @@ const rinderaction = () => {
     );
     $("#actionCH" + i).append(`<h1>${ActionMovieName[i]}</h1>`);
     $("#actionCH" + i).append(`<h2>${ActionMovieYear[i]}</h2>`);
+    movRate = localStorage.getItem(`rate${i}`);
+    movRateNum = localStorage.getItem(`num${i}`);
+
     $("#actionCH" + i).append(
       `<h4>Rating : ${
-        Math.round(ActionMovieRating[i].rating * 10) / 10
-      } / 5 From ${ActionMovieRating[i].userNum} Rate</h4>`
+        Math.round(movRate * 10) / 10
+      } / 5 From ${movRateNum} Rate</h4>`
     );
     $("#actionCH" + i).append(
       `<div class='rating'><button class='RButt' id='actionRating${i}'><i class='fas fa-star' style='font-size:15px;color:#021F32'></i> Rate</button></div>`
@@ -223,13 +234,13 @@ const fun1 = (i) => {
     if (document.getElementsByName("rate")[4].checked) {
       userRate = 1;
     }
-
-    let rate = ActionMovieRating[i].rating * ActionMovieRating[i].userNum;
-    ActionMovieRating[i].userNum += 1;
-    let newRate = (rate + userRate) / ActionMovieRating[i].userNum;
-    ActionMovieRating[i].rating = newRate;
-    ActionMovieRating[i].userNum = ActionMovieRating[i].userNum;
-
+    let movRate = localStorage.getItem(`rate${i}`);
+    let movRateNum = localStorage.getItem(`num${i}`);
+    let rate = movRate * movRateNum;
+    ++movRateNum;
+    let newRate = (rate + userRate) / movRateNum;
+    localStorage.setItem(`rate${i}`, newRate);
+    localStorage.setItem(`num${i}`, movRateNum);
     rinderaction();
   }
 };
