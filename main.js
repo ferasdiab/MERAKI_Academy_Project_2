@@ -401,7 +401,17 @@ const comedyMovieCast = [
 const rinderComedy = () => {
   $(".Comedy").show();
   $(".Comedy").html("");
-
+/// to crater rating in local storage for first time only 
+for (let i = 0; i < ActionMovieName.length; i++) {
+  if (!(localStorage.getItem(`rate1${i}`))){
+    localStorage.setItem(`rate1${i}`, ActionMovieRating[i].rating )
+  }
+  if (!(localStorage.getItem(`num1${i}`))){
+    localStorage.setItem(`num1${i}`, ActionMovieRating[i].userNum )
+  }
+}
+let movRate = 0
+let movRateNum = 0
   for (let i = 0; i < comedyMovieName.length; i++) {
     $(".Comedy").append(`<div class=movieDiv id='ComedyMovie${i}' ></div>`);
 
@@ -413,10 +423,12 @@ const rinderComedy = () => {
     );
     $("#ComedyCH" + i).append(`<h1>${comedyMovieName[i]}</h1>`);
     $("#ComedyCH" + i).append(`<h2>${comedyMovieYear[i]}</h2>`);
+    movRate = localStorage.getItem(`rate1${i}`)
+    movRateNum = localStorage.getItem(`num1${i}`)
     $("#ComedyCH" + i).append(
       `<h4>Rating : ${
-        Math.round(comedyMovieRating[i].rating * 10) / 10
-      } /5  From ${comedyMovieRating[i].userNum} Rate </h1>`
+        Math.round(movRate * 10) / 10
+      } / 5 From ${movRateNum} Rate </h4>`
     );
     $("#ComedyCH" + i).append(
       `<div class='rating'><button class='RButt' id='comedyRating${i}'><i class='fas fa-star' style='font-size:15px;color:#021F32'></i> Rate </button></div>`
@@ -513,11 +525,14 @@ const fun1A = (i) => {
       userRate = 1;
     }
     $("#addRateA" + i).remove();
-    let rate = comedyMovieRating[i].rating * comedyMovieRating[i].userNum;
-    comedyMovieRating[i].userNum += 1;
-    let newRate = (rate + userRate) / comedyMovieRating[i].userNum;
-    comedyMovieRating[i].rating = newRate;
-    comedyMovieRating[i].userNum = comedyMovieRating[i].userNum;
+    let movRate = localStorage.getItem(`rate1${i}`)
+    let movRateNum =  localStorage.getItem(`num1${i}`)
+
+    let rate = movRate * movRateNum
+    ++movRateNum
+    let newRate = (rate + userRate) / movRateNum
+    localStorage.setItem(`rate1${i}`, newRate )
+    localStorage.setItem(`num1${i}`, movRateNum)
 
     rinderComedy();
   }
