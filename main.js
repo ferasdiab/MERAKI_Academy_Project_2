@@ -247,18 +247,23 @@ const fun1 = (i) => {
 
 const addToFav1 = (i) => {
   $("#addFav" + i).remove();
-  let arr = [
-    ActionMovieName[i],
-    ActionMovieBref[i],
-    ActionMovieImj[i],
-    ActionMovieYear[i],
-    ActionMovieRating[i].rating,
-    ActionMovieRating[i].userNum,
-    ActionMovieCast[i].Director,
-    ActionMovieCast[i].Writer,
-    ActionMovieCast[i].Stars,
-  ];
-  localStorage.setItem(ActionMovieName[i], JSON.stringify(arr));
+  let arr = []
+  let obj  = {
+    Mname : ActionMovieName[i],
+    breaf : ActionMovieBref[i],
+    imj   : ActionMovieImj[i],
+    year  : ActionMovieYear[i],
+    rate  : ActionMovieRating[i].rating,
+    numRat: ActionMovieRating[i].userNum,
+    dir   : ActionMovieCast[i].Director,
+    wir   : ActionMovieCast[i].Writer,
+    star  : ActionMovieCast[i].Stars,
+  };
+  if (localStorage.getItem("favLIST")){
+   arr = JSON.parse( localStorage.getItem("favLIST"))
+  }
+  arr.push(obj)
+  localStorage.setItem("favLIST", JSON.stringify(arr));
 };
 
 $("#addToAction").on("click", () => {
@@ -539,44 +544,36 @@ const addToFav2 = (i) => {
 const rinderFavorites = () => {
   $(".Favorites").show();
   $(".Favorites").html("");
-  let i = 0;
-  for (const key in localStorage) {
-    if (
-      key !== "length" &&
-      key !== "clear" &&
-      key !== "getItem" &&
-      key !== "key" &&
-      key !== "removeItem" &&
-      key !== "setItem"
-    ) {
-      let arrr = JSON.parse(localStorage.getItem(key));
+  let favArr  = JSON.parse( localStorage.getItem("favLIST"));
+  for (let i=0 ; i < favArr.length ; i++  ) {
+     
+      
       $(".Favorites").append(
         `<div class=movieDiv id='FavoritesMovie${i}' ></div>`
       );
       $("#FavoritesMovie" + i).append(
-        `<div class=movieDivCH1 ><img src='${arrr[2]}' alt='${key} photo'></div>`
+        `<div class=movieDivCH1 ><img src='${favArr[i].imj}' alt='${favArr[i].Mname} photo'></div>`
       );
       $("#FavoritesMovie" + i).append(
         `<div class=movieDivCH2 id='FavoritesCH${i}' ></div>`
       );
-      $("#FavoritesCH" + i).append(`<h1>${arrr[0]}</h1>`);
-      $("#FavoritesCH" + i).append(`<h2>${arrr[3]}</h2>`);
+      $("#FavoritesCH" + i).append(`<h1>${favArr[i].Mname}</h1>`);
+      $("#FavoritesCH" + i).append(`<h2>${favArr[i].year}</h2>`);
       $("#FavoritesCH" + i).append(
-        `<h4>Rating : ${Math.round(arrr[4] * 10) / 10} / 5 From ${
-          arrr[5]
+        `<h4>Rating : ${Math.round(favArr[i].rate* 10) / 10} / 5 From ${
+          favArr[i].numRat
         } Rate</h1>`
       );
-      $("#FavoritesCH" + i).append(`<p id='breafFavorites${i}'>${arrr[1]}</p>`);
+      $("#FavoritesCH" + i).append(`<p id='breafFavorites${i}'>${favArr[i].breaf}</p>`);
       $("#FavoritesCH" + i).append(
-        `<div class='moreInfoFav${i}' ><p> Director: ${arrr[6]} </p></div>`
+        `<div class='moreInfoFav${i}' ><p> Director: ${favArr[i].dir} </p></div>`
       );
       $("#FavoritesCH" + i).append(
-        `<div class='moreInfoFav${i}' ><p> Writer: ${arrr[7]} </p></div>`
+        `<div class='moreInfoFav${i}' ><p> Writer: ${favArr[i].wir} </p></div>`
       );
       $("#FavoritesCH" + i).append(
-        `<div class='moreInfoFav${i}' ><p> Stars: ${arrr[8]} </p></div>`
+        `<div class='moreInfoFav${i}' ><p> Stars: ${favArr[i].star} </p></div>`
       );
-      i++;
-    }
+    
   }
 };
