@@ -565,8 +565,8 @@ const rinderFavorites = () => {
   $(".removeFav").remove();
   $(".Favorites").show();
   $(".Favorites").html("");
-  if (localStorage.getItem("favLIST")) {
   let favArr  = JSON.parse( localStorage.getItem("favLIST"));
+  if (favArr) {
   for (let i=0 ; i < favArr.length ; i++  ) {
       
       $(".Favorites").append(
@@ -596,7 +596,7 @@ const rinderFavorites = () => {
         `<div class='moreInfoFav${i}' ><p> Stars: ${favArr[i].star} </p></div>`
       );
       $("#FavoritesCH" + i).append(
-        `<button onclick='removeMov(${i})' class='removeMov' id='removeMov${i}'>Remove From Favorites</button>`
+        `<button class='removeMov' id='removeMov${i}'>Remove From Favorites</button>`
       );
 
 
@@ -607,12 +607,12 @@ const rinderFavorites = () => {
 
       });
     
-  }
+  
   $(".continar").append(
     `<div class='removeFav'><button onclick='removeFav()' id='removeFav'>Clear This List</button></div>`
     )
  }
-  
+  } 
 
 };
 

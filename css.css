@@ -24,9 +24,9 @@
 .navbar ul li {
   list-style: none;
   display: inline-block;
-  margin-left: 20px;
   margin-right: 20px;
   position: relative;
+  width: 150px;
 }
 
 #AboutUS {
@@ -58,7 +58,6 @@
 #home {
   text-decoration: none;
   color: white;
-  margin-right: 100px;
   font-size: large;
 }
 
