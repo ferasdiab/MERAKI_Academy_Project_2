@@ -17,6 +17,9 @@
   color: white;
   text-transform: uppercase;
 }
+#webName span {
+  color: #F2A81D;
+}
 
 .navbar ul li {
   list-style: none;
@@ -89,9 +92,11 @@
 }
 
 #addToAction,
-#addActionNow {
+#addActionNow,
+#removeFav {
   margin-top: 3%;
   margin-bottom: 2%;
+  margin-left: 8.5%;
   font-size: 14px;
   padding: 15px;
   border: 2px solid #38a69b;
