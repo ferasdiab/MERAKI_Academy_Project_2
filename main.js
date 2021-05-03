@@ -136,7 +136,7 @@ const rinderaction = () => {
     movRateNum = localStorage.getItem(`num${i}`);
 
     $("#actionCH" + i).append(
-      `<h4>Rating : ${
+      `<h4 id ='rateText${i}'>Rating : ${
         Math.round(movRate * 10) / 10
       } / 5 From ${movRateNum} Rate</h4>`
     );
@@ -292,7 +292,7 @@ $("#addToAction").on("click", () => {
     "<input class='addInput' id='actionInput7' type='text' placeholder='Movie Stars'>"
   );
   $("#newMovie").append(
-    "<button onclick ='addAction()' id='addActionNow'>Add</button>"
+    "<button onclick ='addAction()' id='addActionNow'>Add This Movie</button>"
   );
 });
 
