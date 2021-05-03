@@ -18,7 +18,7 @@
   text-transform: uppercase;
 }
 #webName span {
-  color: #F2A81D;
+  color: #f2a81d;
 }
 
 .navbar ul li {
@@ -159,7 +159,8 @@
   margin-left: 20px;
   display: flex;
   justify-content: space-around;
-  margin-top: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
   padding: 15px;
   border: 2px solid #021f32;
 }
@@ -187,7 +188,8 @@ img {
   margin-top: 10%;
 }
 
-.moreBUtt {
+.moreBUtt,
+.removeMov {
   color: white;
   background: #021f32;
   font-size: large;

@@ -247,22 +247,22 @@ const fun1 = (i) => {
 
 const addToFav1 = (i) => {
   $("#addFav" + i).remove();
-  let arr = []
-  let obj  = {
-    Mname : ActionMovieName[i],
-    breaf : ActionMovieBref[i],
-    imj   : ActionMovieImj[i],
-    year  : ActionMovieYear[i],
-    rate  : localStorage.getItem(`rate${i}`),
+  let arr = [];
+  let obj = {
+    Mname: ActionMovieName[i],
+    breaf: ActionMovieBref[i],
+    imj: ActionMovieImj[i],
+    year: ActionMovieYear[i],
+    rate: localStorage.getItem(`rate${i}`),
     numRat: localStorage.getItem(`num${i}`),
-    dir   : ActionMovieCast[i].Director,
-    wir   : ActionMovieCast[i].Writer,
-    star  : ActionMovieCast[i].Stars,
+    dir: ActionMovieCast[i].Director,
+    wir: ActionMovieCast[i].Writer,
+    star: ActionMovieCast[i].Stars,
   };
-  if (localStorage.getItem("favLIST")){
-   arr = JSON.parse( localStorage.getItem("favLIST"))
+  if (localStorage.getItem("favLIST")) {
+    arr = JSON.parse(localStorage.getItem("favLIST"));
   }
-  arr.push(obj)
+  arr.push(obj);
   localStorage.setItem("favLIST", JSON.stringify(arr));
 };
 
@@ -317,59 +317,59 @@ const addAction = () => {
 
 const comedyMovieName = [
   "The Hitman's Bodyguard ",
-  "Step Brothers",
   "Deadpool",
   "We're the Millers",
   "The Hangover",
   "Due Date",
+  "Step Brothers",
   "Spenser Confidential",
+  "Bad Boys for Life",
 ];
 const comedyMovieBref = [
   "The world's top bodyguard gets a new client, a hitman who must testify at the International Criminal Court. They must put their differences aside and work together to make it to the trial on time.",
-  "Two aimless middle-aged losers still living at home are forced against their will to become roommates when their parents marry.",
   "A wisecracking mercenary gets experimented on and becomes immortal but ugly, and sets out to track down the man who ruined his looks.",
   "A veteran pot dealer creates a fake family as part of his plan to move a huge shipment of weed into the U.S. from Mexico.",
   "Three buddies wake up from a bachelor party in Las Vegas, with no memory of the previous night and the bachelor missing. They make their way around the city in order to find their friend before his wedding.",
   "High-strung father-to-be Peter Highman is forced to hitch a ride with aspiring actor Ethan Tremblay on a road trip in order to make it to his child's birth on time.",
+  "Two aimless middle-aged losers still living at home are forced against their will to become roommates when their parents marry.",
   "When two Boston police officers are murdered, ex-cop Spenser teams up with his no-nonsense roommate, Hawk, to take down criminals.",
+  "Miami detectives Mike Lowrey and Marcus Burnett must face off against a mother-and-son pair of drug lords who wreak vengeful havoc on their city.",
 ];
 const comedyMovieImj = [
   "https://m.media-amazon.com/images/M/MV5BMjQ5NjA2NDg1MV5BMl5BanBnXkFtZTgwMDAzNDc4MjI@._V1_UX182_CR0,0,182,268_AL_.jpg",
-  "https://m.media-amazon.com/images/M/MV5BODViZDg3ZjYtMzhiYS00YTVkLTk4MzktYWUxMTlkYjc1NjdlXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg",
   "https://m.media-amazon.com/images/M/MV5BYzE5MjY1ZDgtMTkyNC00MTMyLThhMjAtZGI5OTE1NzFlZGJjXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg",
   "https://m.media-amazon.com/images/M/MV5BMjA5Njc0NDUxNV5BMl5BanBnXkFtZTcwMjYzNzU1OQ@@._V1_UX182_CR0,0,182,268_AL_.jpg",
   "https://m.media-amazon.com/images/M/MV5BNGQwZjg5YmYtY2VkNC00NzliLTljYTctNzI5NmU3MjE2ODQzXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_UX182_CR0,0,182,268_AL_.jpg",
   "https://m.media-amazon.com/images/M/MV5BMTU5MTgxODM3Nl5BMl5BanBnXkFtZTcwMjMxNDEwNA@@._V1_UX182_CR0,0,182,268_AL_.jpg",
+  "https://m.media-amazon.com/images/M/MV5BODViZDg3ZjYtMzhiYS00YTVkLTk4MzktYWUxMTlkYjc1NjdlXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UX182_CR0,0,182,268_AL_.jpg",
   "https://m.media-amazon.com/images/M/MV5BMTdkOTEwYjMtNDA1YS00YzVlLTg0NWUtMmQzNDZhYWUxZmIyXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UX182_CR0,0,182,268_AL_.jpg",
+  "https://m.media-amazon.com/images/M/MV5BMWU0MGYwZWQtMzcwYS00NWVhLTlkZTAtYWVjOTYwZTBhZTBiXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_UX182_CR0,0,182,268_AL_.jpg",
 ];
 const comedyMovieYear = [
   "18 August 2017",
-  "25 July 2008",
   "12 February 2016",
   "7 August 2013",
   "5 June 2009",
   "5 November 2010",
+  "25 July 2008",
   "6 March 2020 ",
+  "17 January 2020",
 ];
 const comedyMovieRating = [
   { rating: 5, userNum: 1 },
-  { rating: 3.7, userNum: 50 },
   { rating: 3.9, userNum: 50 },
   { rating: 3.4, userNum: 250 },
   { rating: 4.2, userNum: 550 },
   { rating: 3.6, userNum: 320 },
+  { rating: 3.7, userNum: 50 },
   { rating: 4.1, userNum: 130 },
+  { rating: 4, userNum: 35 },
 ];
 const comedyMovieCast = [
   {
     Director: "Patrick Hughes",
     Writer: "Tom O'Connor",
     Stars: " Ryan Reynolds, Samuel L. Jackson, Gary Oldman ",
-  },
-  {
-    Director: "Adam McKay",
-    Writer: " Will Ferrell, Adam McKay",
-    Stars: "Will Ferrell, John C. Reilly, Mary Steenburgen ",
   },
   {
     Director: "Tim Miller",
@@ -392,26 +392,36 @@ const comedyMovieCast = [
     Stars: "Robert Downey Jr., Zach Galifianakis, Michelle Monaghan",
   },
   {
+    Director: "Adam McKay",
+    Writer: " Will Ferrell, Adam McKay",
+    Stars: "Will Ferrell, John C. Reilly, Mary Steenburgen ",
+  },
+  {
     Director: "Peter Berg",
     Writer: "Sean O'Keefe (screenplay by), Brian Helgeland ",
     Stars: "Mark Wahlberg, Winston Duke, Alan Arkin",
+  },
+  {
+    Director: "Adil El Arbi, Bilall Fallah",
+    Writer: " Peter Craig (story by), Joe Carnahan",
+    Stars: " Will Smith, Martin Lawrence, Vanessa Hudgens",
   },
 ];
 
 const rinderComedy = () => {
   $(".Comedy").show();
   $(".Comedy").html("");
-/// to crater rating in local storage for first time only 
-for (let i = 0; i < ActionMovieName.length; i++) {
-  if (!(localStorage.getItem(`rate1${i}`))){
-    localStorage.setItem(`rate1${i}`, ActionMovieRating[i].rating )
+  /// to crater rating in local storage for first time only
+  for (let i = 0; i < comedyMovieName.length; i++) {
+    if (!localStorage.getItem(`rate1${i}`)) {
+      localStorage.setItem(`rate1${i}`, comedyMovieRating[i].rating);
+    }
+    if (!localStorage.getItem(`num1${i}`)) {
+      localStorage.setItem(`num1${i}`, comedyMovieRating[i].userNum);
+    }
   }
-  if (!(localStorage.getItem(`num1${i}`))){
-    localStorage.setItem(`num1${i}`, ActionMovieRating[i].userNum )
-  }
-}
-let movRate = 0
-let movRateNum = 0
+  let movRate = 0;
+  let movRateNum = 0;
   for (let i = 0; i < comedyMovieName.length; i++) {
     $(".Comedy").append(`<div class=movieDiv id='ComedyMovie${i}' ></div>`);
 
@@ -423,8 +433,8 @@ let movRateNum = 0
     );
     $("#ComedyCH" + i).append(`<h1>${comedyMovieName[i]}</h1>`);
     $("#ComedyCH" + i).append(`<h2>${comedyMovieYear[i]}</h2>`);
-    movRate = localStorage.getItem(`rate1${i}`)
-    movRateNum = localStorage.getItem(`num1${i}`)
+    movRate = localStorage.getItem(`rate1${i}`);
+    movRateNum = localStorage.getItem(`num1${i}`);
     $("#ComedyCH" + i).append(
       `<h4>Rating : ${
         Math.round(movRate * 10) / 10
@@ -525,14 +535,14 @@ const fun1A = (i) => {
       userRate = 1;
     }
     $("#addRateA" + i).remove();
-    let movRate = localStorage.getItem(`rate1${i}`)
-    let movRateNum =  localStorage.getItem(`num1${i}`)
+    let movRate = localStorage.getItem(`rate1${i}`);
+    let movRateNum = localStorage.getItem(`num1${i}`);
 
-    let rate = movRate * movRateNum
-    ++movRateNum
-    let newRate = (rate + userRate) / movRateNum
-    localStorage.setItem(`rate1${i}`, newRate )
-    localStorage.setItem(`num1${i}`, movRateNum)
+    let rate = movRate * movRateNum;
+    ++movRateNum;
+    let newRate = (rate + userRate) / movRateNum;
+    localStorage.setItem(`rate1${i}`, newRate);
+    localStorage.setItem(`num1${i}`, movRateNum);
 
     rinderComedy();
   }
@@ -540,22 +550,22 @@ const fun1A = (i) => {
 
 const addToFav2 = (i) => {
   $("#addFav2" + i).remove();
-  let arr = []
-  let obj  = {
-    Mname : comedyMovieName[i],
-    breaf : comedyMovieBref[i],
-    imj   : comedyMovieImj[i],
-    year  : comedyMovieYear[i],
-    rate  : localStorage.getItem(`rate1${i}`),
+  let arr = [];
+  let obj = {
+    Mname: comedyMovieName[i],
+    breaf: comedyMovieBref[i],
+    imj: comedyMovieImj[i],
+    year: comedyMovieYear[i],
+    rate: localStorage.getItem(`rate1${i}`),
     numRat: localStorage.getItem(`num1${i}`),
-    dir   :comedyMovieCast[i].Director,
-    wir   :comedyMovieCast[i].Writer,
-    star  :comedyMovieCast[i].Stars,
+    dir: comedyMovieCast[i].Director,
+    wir: comedyMovieCast[i].Writer,
+    star: comedyMovieCast[i].Stars,
   };
-  if (localStorage.getItem("favLIST")){
-   arr = JSON.parse( localStorage.getItem("favLIST"))
+  if (localStorage.getItem("favLIST")) {
+    arr = JSON.parse(localStorage.getItem("favLIST"));
   }
-  arr.push(obj)
+  arr.push(obj);
   localStorage.setItem("favLIST", JSON.stringify(arr));
 };
 
@@ -563,12 +573,12 @@ const addToFav2 = (i) => {
 
 const rinderFavorites = () => {
   $(".removeFav").remove();
+  $("#removeFav").remove();
   $(".Favorites").show();
   $(".Favorites").html("");
-  let favArr  = JSON.parse( localStorage.getItem("favLIST"));
+  let favArr = JSON.parse(localStorage.getItem("favLIST"));
   if (favArr) {
-  for (let i=0 ; i < favArr.length ; i++  ) {
-      
+    for (let i = 0; i < favArr.length; i++) {
       $(".Favorites").append(
         `<div class=movieDiv id='FavoritesMovie${i}' ></div>`
       );
@@ -578,14 +588,19 @@ const rinderFavorites = () => {
       $("#FavoritesMovie" + i).append(
         `<div class=movieDivCH2 id='FavoritesCH${i}' ></div>`
       );
+      $("#FavoritesCH" + i).append(
+        `<button class='removeMov' id='removeMov${i}'><i class='far fa-trash-alt' style='font-size:15px;color:red'></i> Remove From Favorites</button>`
+      );
       $("#FavoritesCH" + i).append(`<h1>${favArr[i].Mname}</h1>`);
       $("#FavoritesCH" + i).append(`<h2>${favArr[i].year}</h2>`);
       $("#FavoritesCH" + i).append(
-        `<h4>Rating : ${Math.round(favArr[i].rate* 10) / 10} / 5 From ${
+        `<h4>Rating : ${Math.round(favArr[i].rate * 10) / 10} / 5 From ${
           favArr[i].numRat
         } Rate</h1>`
       );
-      $("#FavoritesCH" + i).append(`<p id='breafFavorites${i}'>${favArr[i].breaf}</p>`);
+      $("#FavoritesCH" + i).append(
+        `<p id='breafFavorites${i}'>${favArr[i].breaf}</p>`
+      );
       $("#FavoritesCH" + i).append(
         `<div class='moreInfoFav${i}' ><p> Director: ${favArr[i].dir} </p></div>`
       );
@@ -595,33 +610,24 @@ const rinderFavorites = () => {
       $("#FavoritesCH" + i).append(
         `<div class='moreInfoFav${i}' ><p> Stars: ${favArr[i].star} </p></div>`
       );
-      $("#FavoritesCH" + i).append(
-        `<button class='removeMov' id='removeMov${i}'>Remove From Favorites</button>`
-      );
 
-
-      $("#removeMov"+ i).on("click", () => {
-        favArr.splice(i,1)
-        localStorage.setItem("favLIST", JSON.stringify(favArr))
-        rinderFavorites()
-
+      $("#removeMov" + i).on("click", () => {
+        favArr.splice(i, 1);
+        localStorage.setItem("favLIST", JSON.stringify(favArr));
+        rinderFavorites();
       });
-    
-  
-  $(".continar").append(
-    `<div class='removeFav'><button onclick='removeFav()' id='removeFav'>Clear This List</button></div>`
-    )
- }
-  } 
-
+    }
+    $(".continar").append(
+      `<div class='removeFav'><button onclick='removeFav()' id='removeFav'>Clear This List</button></div>`
+    );
+  }
 };
 
-
-const removeFav = ()=> {
+const removeFav = () => {
   $("#removeFav").hide();
-  localStorage.removeItem("favLIST")
-  rinderFavorites()
-}
+  localStorage.removeItem("favLIST");
+  rinderFavorites();
+};
 
 /*
 const removeMov = ()=> {
