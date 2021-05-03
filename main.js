@@ -562,6 +562,7 @@ const addToFav2 = (i) => {
 //////////////////////////////////////////////Favorites list //////////////
 
 const rinderFavorites = () => {
+  $(".removeFav").remove();
   $(".Favorites").show();
   $(".Favorites").html("");
   if (localStorage.getItem("favLIST")) {
@@ -594,10 +595,21 @@ const rinderFavorites = () => {
       $("#FavoritesCH" + i).append(
         `<div class='moreInfoFav${i}' ><p> Stars: ${favArr[i].star} </p></div>`
       );
+      $("#FavoritesCH" + i).append(
+        `<button onclick='removeMov(${i})' class='removeMov' id='removeMov${i}'>Remove From Favorites</button>`
+      );
+
+
+      $("#removeMov"+ i).on("click", () => {
+        favArr.splice(i,1)
+        localStorage.setItem("favLIST", JSON.stringify(favArr))
+        rinderFavorites()
+
+      });
     
   }
   $(".continar").append(
-    `<div class='removeFav'><button onclick='removeFav()' id='removeFav'>Clear this list</button></div>`
+    `<div class='removeFav'><button onclick='removeFav()' id='removeFav'>Clear This List</button></div>`
     )
  }
   
@@ -610,3 +622,9 @@ const removeFav = ()=> {
   localStorage.removeItem("favLIST")
   rinderFavorites()
 }
+
+/*
+const removeMov = ()=> {
+
+}
+*/
